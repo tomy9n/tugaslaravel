@@ -14,46 +14,49 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label for="">NPM</label>
-                                    <input type="number" name="npm" class="form-control" placeholder="Tambahkan NPM"><br>
+                                    <input type="number" name="npm" class="form-control" placeholder="Tambahkan NPM" maxlength="8">
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="col">
                                     <label for="">Nama Mahasiswa</label>
-                                    <input type="text" name="nama_mahasiswa" class="form-control" placeholder="Tambahkan Nama Mahasiswa"><br>
+                                    <select name="user_id" id="user_id" class="form-control">
+                                        <option value="" disabled selected>--Pilih User--</option>
+                                        @foreach ($user as $u)
+                                            <option value="{{$u->id}}">{{$u->name}}</option>
+                                        @endforeach
+                                    </select><br>
                                 </div>
                             </div>
+
                             <div class="form-row">
                                 <div class="col">
                                     <label for="">Tempat Lahir</label>
-                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="Tambahkan Tempat Lahir"><br>
+                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="Tambahkan Tempat Lahir">
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="col">
                                     <label for="">Tanggal Lahir</label>
                                     <input type="date" name="tgl_lahir" class="form-control" placeholder="Pilih Tanggal Lahir"><br>
                                 </div>
                             </div>
+                        
                             <div class="form-row">
                                 <div class="col">
                                     <label for="">Jenis Kelamin</label>
-                                    <select name="jenis_kelamin" class="form-control">
+                                    <select name="jenis_kelamin" class="form-control" id="jenis_kelamin">
+                                        <option value="" disabled selected>--Pilih Jenis Kelamin--</option>
                                         <option value="L">Laki-laki</option>
                                         <option value="P">Perempuan</option>
-                                    </select><br>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="col">
                                     <label for="">Nomor Telepon</label>
                                     <input type="number" name="telepon" class="form-control" placeholder="Tambahkan Nomor Telepon"><br>
                                 </div>
                             </div>
+
                             <div class="form-row">
                                 <div class="col">
                                     <label for="">Alamat</label>
-                                    <input type="text" name="alamat" class="form-control" placeholder="Tambahkan Alamat"><br>
+                                    <textarea name="alamat" id="alamat" cols="2" rows="3" class="form-control" placeholder="Tambahkan Alamat" style="resize:none"></textarea>
                                 </div>
                             </div>
                         </div>

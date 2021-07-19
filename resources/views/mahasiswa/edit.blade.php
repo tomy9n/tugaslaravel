@@ -9,51 +9,54 @@
 
                 <div class="card-body">
                     <form action="{{ route('update.mahasiswa',$mahasiswa->id) }}" method="POST">
-                        @csrf
+                    @csrf
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col">
                                     <label for="">NPM</label>
-                                    <input type="number" name="npm" class="form-control" placeholder="Tambahkan NPM" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->npm }}"><br>
+                                    <input type="number" name="npm" class="form-control" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->npm }}">
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="col">
                                     <label for="">Nama Mahasiswa</label>
-                                    <input type="text" name="nama_mahasiswa" class="form-control" placeholder="Tambahkan Nama Mahasiswa" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->nama_mahasiswa }}"><br>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col">
-                                    <label for="">Tempat Lahir</label>
-                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="Tambahkan Tempat Lahir" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->tempat_lahir }}"><br>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col">
-                                    <label for="">Tanggal Lahir</label>
-                                    <input type="date" name="tgl_lahir" class="form-control" placeholder="Pilih Tanggal Lahir" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->tgl_lahir }}"><br>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col">
-                                    <label for="">Jenis Kelamin</label>
-                                    <select name="jenis_kelamin" class="form-control" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->jenis_kelamin }}">
-                                        <option value="L">Laki-laki</option>
-                                        <option value="P">Perempuan</option>
+                                    <select name="user_id" id="user_id" class="form-control">
+                                        <option value="" disabled selected>--Pilih User--</option>
+                                        @foreach ($user as $u)
+                                            <option value="{{$u->id}}" {{ $mahasiswa->user_id == $u->id ? 'selected' : '' }}>{{$u->name}}</option>
+                                        @endforeach
                                     </select><br>
                                 </div>
                             </div>
+
                             <div class="form-row">
                                 <div class="col">
-                                    <label for="">Nomor Telepon</label>
-                                    <input type="number" name="telepon" class="form-control" placeholder="Tambahkan Nomor Telepon" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->telepon }}"><br>
+                                    <label for="">Tempat Lahir</label>
+                                    <input type="text" name="tempat_lahir" class="form-control" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->tempat_lahir }}">
+                                </div>
+                                <div class="col">
+                                    <label for="">Tanggal Lahir</label>
+                                    <input type="date" name="tgl_lahir" class="form-control" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->tgl_lahir }}"><br>
                                 </div>
                             </div>
+                        
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="">Jenis Kelamin</label>
+                                    <select name="jenis_kelamin" class="form-control" id="jenis_kelamin">
+                                        <option value="" disabled selected>--Pilih Jenis Kelamin--</option>
+                                        <option value="L" {{ $mahasiswa->jenis_kelamin == 'L' ? 'selected' : '' }}>Laki-laki</option>
+                                        <option value="P" {{ $mahasiswa->jenis_kelamin == 'P' ? 'selected' : '' }}>Perempuan</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="">Nomor Telepon</label>
+                                    <input type="number" name="telepon" class="form-control" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->telepon }}"><br>
+                                </div>
+                            </div>
+
                             <div class="form-row">
                                 <div class="col">
                                     <label for="">Alamat</label>
-                                    <input type="text" name="alamat" class="form-control" placeholder="Tambahkan Alamat" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->alamat }}"><br>
+                                    <input type="text" name="alamat" id="alamat" class="form-control" style="resize:none" value="{{ is_null($mahasiswa) ? '' : $mahasiswa->alamat }}">      
                                 </div>
                             </div>
                         </div>

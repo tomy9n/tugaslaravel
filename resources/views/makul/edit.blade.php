@@ -14,15 +14,15 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label for="">Kode Makul</label>
-                                    <input type="text" name="kd_makul" class="form-control" placeholder="Tambahkan Kode Makul" value="{{ is_null($makul) ? '' : $makul->kd_makul }}">
+                                    <input type="text" name="kd_makul" class="form-control" value="{{ is_null($makul) ? '' : $makul->kd_makul }}">
                                 </div>
                                 <div class="col">
                                     <label for="">Nama Makul</label>
-                                    <input type="text" name="nama_makul" class="form-control" placeholder="Tambahkan Nama Makul" value="{{ is_null($makul) ? '' : $makul->nama_makul }}">
+                                    <input type="text" name="nama_makul" class="form-control" value="{{ is_null($makul) ? '' : $makul->nama_makul }}">
                                 </div>
                                 <div class="col">
                                     <label for="">Jumlah SKS</label>
-                                    <input type="number" name="sks" class="form-control" placeholder="Tambahkan Jumlah SKS" value="{{ is_null($makul) ? '' : $makul->sks }}">
+                                    <input type="number" name="sks" class="form-control" value="{{ is_null($makul) ? '' : $makul->sks }}">
                                 </div>
                             </div>
                         </div>
