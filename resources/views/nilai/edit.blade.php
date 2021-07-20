@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col">
                                     <label for="">Nilai</label>
-                                    <input type="number" name="nilai" class="form-control" placeholder="Tambahkan Nilai">
+                                    <input type="number" name="nilai" class="form-control" value="{{ is_null($nilai) ? '' : $nilai->nilai }}">
                                 </div>
                             </div>
                         </div>
